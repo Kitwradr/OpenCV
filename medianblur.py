@@ -1,6 +1,3 @@
-
-
-
 import cv2
 import numpy as np
 
@@ -24,11 +21,31 @@ while(1):
     sobely = cv2.Sobel(frame,cv2.CV_64F,0,1,ksize=5)
     canny = cv2.Canny(frame,100,200)
 
-    indices = np.where(frame == [255])
-    print(indices)
-    for x in indices:
-        print(x)
+    # canny = cv2.cvtColor(canny, cv2.COLOR_BGR2GRAY)
+    _,canny = cv2.threshold(canny,200,255,cv2.THRESH_BINARY)
+
+
+
+    indices = np.where(canny == [255])
+    # print(indices)
     
+    coordinates = zip(indices[0], indices[1])
+    # print(coordinates)
+    sumx=0
+    sumy=0
+    ctr=0
+    for x in coordinates:
+        if x[1]==1:
+            continue
+        ctr+=1
+        sumx+=x[0]
+        sumy+=x[1]
+    if ctr!=0:
+        sumx= int(sumx/ctr)
+        sumy= int(sumy/ctr)
+        print(str(sumx)+' '+str(sumy))
+        # cv2.circle(canny,(sumx,sumy), 100, (0,0,255), -1)
+        cv2.circle(frame,(sumy,sumx), 5, (0,0,255), -1)
 
     
     cv2.imshow('Original',frame)
