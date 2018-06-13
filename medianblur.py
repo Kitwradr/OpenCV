@@ -24,6 +24,12 @@ while(1):
     sobely = cv2.Sobel(frame,cv2.CV_64F,0,1,ksize=5)
     canny = cv2.Canny(frame,100,200)
 
+    indices = np.where(frame == [255])
+    print(indices)
+    for x in indices:
+        print(x)
+    
+
     
     cv2.imshow('Original',frame)
     # cv2.imshow('Mask',mask)
