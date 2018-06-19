@@ -2,8 +2,6 @@
 .vscode/
 .vscode\
 settings.json
-/settings.json
-\settings.json
 .vscode/settings.json
 objectdetect
 
