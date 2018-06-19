@@ -2,7 +2,7 @@
 import numpy as np
 import cv2
 
-ship_cascade = cv2.CascadeClassifier('cascade.xml')
+ship_cascade = cv2.CascadeClassifier('cascade_ship.xml')
 
 
 cap = cv2.VideoCapture('sample8.mpg')
