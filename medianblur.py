@@ -10,7 +10,7 @@ while(1):
 
     # Take each frame
     _, frame = cap.read()
-    frame = cv2.medianBlur(frame, 5)#ksize[, dst])
+    frame = cv2.medianBlur(frame, 3)#ksize[, dst])
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     # frame = cv2.fastNlMeansDenoisingColored(frame,None,10,10,7,21)
     lower_red = np.array([30,150,50])
